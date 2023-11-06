@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+<head>
+    <meta charset="utf-8">
+    <title>Barnet conservation areas - note - Digital Land</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" sizes="48x48" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" sizes="32x32" href="/images/favicon-32x32.png" type="image/png">
+    <link rel="shortcut icon" sizes="16x16" href="/images/favicon-16x16.png" type="image/png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />
+    <meta property="og:image" content="/images/govuk-opengraph-image.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<style>
+html {
+    font-family: sans-serif;
+}
+.leaflet-container {
+  height: 480px;
+  width: 100%;
+  max-width: 100%;
+  max-height: 80%;
+  margin: 4em 0;
+}
+img.pdf-map {
+   max-width: 100%;
+   margin: 1em 0;
+}
+</style>
+</head>
+<body class="govuk-template__body ">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+<!-- Cookie banner partial version 1.0.1 -->
+<div id="global-cookie-message" class="govuk-clearfix global-cookie-message" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="">
+
+  <div id="cookie-banner" class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="cookie-banner__message govuk-!-margin-top-6">
+          <h2 class="govuk-heading-m">Tell us whether you accept cookies</h2>
+          <p class="govuk-body">We use <a class="govuk-link" href="/cookies">cookies to collect information</a> about how you use the Digital Land website to make the website work as well as possible.</p>
+        </div>
+        <div class="cooke-banner__buttons govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <button class="govuk-button" onclick="acceptCookies();showCookieConfirmation();">Accept all cookies</button>
+          </div>
+          <div class="govuk-grid-column-one-half">
+            <a class="govuk-button" href="/cookies">Set cookie preferences</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="cookie-confirmation" class="govuk-width-container govuk-!-padding-top-6" tabindex="-1" style="display: none;">
+    <p class="cookie-banner__confirmation-message govuk-body">You’ve accepted all cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
+    <button class="cookie-banner__hide-button govuk-button govuk-button--secondary" onclick="document.getElementById('cookie-confirmation').style.display='none';">Hide</button>
+  </div>
+</div>
+
+<header role="banner" id="global-header" class="govuk-header  with-proposition dl-header" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="header-proposition">
+      <div class="govuk-header__content">
+        <a href="https://digital-land.github.io/" class="govuk-header__link govuk-header__link--service-name">
+        Digital Land
+        </a>
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul id="navigation" class="govuk-header__navigation" aria-label="Top Level Navigation">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/about/">About</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/project/">Projects</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/weeknote/">Weeknotes</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/blog-post/">Blog</a>
+            </li>
+          </ul>
+        </nav>
+        </div>
+    </div>
+  </div>
+</header>
+    
+<div class="govuk-width-container ">
+  <div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Digital Land</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      Note
+    </li>
+    <li class="govuk-breadcrumbs__list-item" aria-current="page">Barnet conservation areas</li>
+  </ol>
+</div>
+
+<main class="govuk-main-wrapper " id="main-content" role="main">
+
+<h1 class="govuk-heading-xl">Barnet conservation areas</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body"><time datetime="2023-11-03">3 November 2023</time></p>
+    <p class="govuk-body">
+    Notes on adding Barnet's conservation areas to <a href="https://www.planning.data.gov.uk">planning.data.gov.uk</a>.
+    </p>
+
+<div id='map'></div>
+
+<h2 id="source" class="govuk-heading-l">Source</h2>
+<p class="govuk-body">
+Barnet have a policy page on their main site with a list of conservation areas which looks like the source 
+<code>documentation-url</code> value:
+<a href="https://www.barnet.gov.uk/planning-and-building-control/conservation-and-heritage/conservation-areas">https://www.barnet.gov.uk/planning-and-building-control/conservation-and-heritage/conservation-areas</a>.
+</p>
+
+<h2 id="endpoint" class="govuk-heading-l">Endpoint</h2>
+<p class="govuk-body">
+Barnet also have a page documenting their open data publications and endpoints: 
+<a href="https://open.barnet.gov.uk/dataset/20yo8/conservation-areas">https://open.barnet.gov.uk/dataset/20yo8/conservation-areas</a>.
+</p>
+<p class="govuk-body">
+This could be added to the endpoint dataset in a new <code>documentation-url</code> field.
+We can use this to record pages like this where the data is documented separately to the information, 
+such as on a service such as <a href="https://datamillnorth.org/">Data Mill North</a> or ArcGIS.
+</p>
+<p class="govuk-body">
+There is also a <a href="https://guidance.data.gov.uk/publish_and_manage_data/harvest_or_add_data/harvest_data/gemini/">GEMINI</a> file at
+<a href="https://open.barnet.gov.uk/download/20yo8/ef7/ConservationAreas.xml">https://open.barnet.gov.uk/download/20yo8/ef7/ConservationAreas.xml</a>.
+This is one of the metadata formats used by the 
+<a href="https://guidance.data.gov.uk/publish_and_manage_data/harvest_or_add_data/harvest_data/">data.gov.uk harvester</a>
+which could be used by the platform monitor to monitor endpoints published by some LPAs.
+The platform could also publish a GEMINI file for each dataset.
+</p>
+<h1 id="conservation-area-documents" class="govuk-heading-l">Conservation area documents</h1>
+<p class="govuk-body">
+
+</p>
+<h1 id="matching-existing-entities" class="govuk-heading-l">Matching existing entities</h1>
+<p class="govuk-body">
+We already have conservation areas in Barnet from Historic England's national dataset, and the GLA's London Datastore.
+Entities from these secondary sources need to be matched and redirected to Barnet's data, which is the authorititive source. 
+</p>
+<p class="govuk-body">
+The platform currently sets the organisation for each conservation area from the London Datastore to the individual London Borough.
+This should be changed to attribute them to all to the GLA so they can be recoginsed as being a secondary source.
+</p>
+<p class="govuk-body">
+A <a href="https://www.planning.data.gov.uk/entity/?dataset=conservation-area&geometry_curie=statistical-geography:E09000003&limit=500">search for conservation areas in Barnet</a> currently returns 33 entities including conservation areas from neighbouring authorities which abut Barnet's local authority district boundary. 
+</p>
+<p class="govuk-body">
+The references CA02 and CA09 don't appear in Barnet's data.
+</p>
+
+
+<h2 id="44002424" class="govuk-heading-l">Monken Hadley</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002424">44002424</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA01</td>
+	<td class="govuk-table__cell">Monken Hadley</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002424">44002424</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">1156</td>
+	<td class="govuk-table__cell">Monken Hadley</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44008885">44008885</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000379</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44009015">44009015</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000705</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/MonkenHadley.pdf"><img class="pdf-map" src="img/MonkenHadley.png"></a>
+
+
+<h2 id="44002423" class="govuk-heading-l">Wood Street</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002423">44002423</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA03</td>
+	<td class="govuk-table__cell">Wood Street</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002423">44002423</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7062</td>
+	<td class="govuk-table__cell">Wood Street</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44008879">44008879</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000359</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/238231WoodStreetnoarticle4.pdf"><img class="pdf-map" src="img/238231WoodStreetnoarticle4.png"></a>
+
+
+<h2 id="44002420" class="govuk-heading-l">The Watling Estate</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002420">44002420</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA04</td>
+	<td class="govuk-table__cell">The Watling Estate</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002420">44002420</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7038</td>
+	<td class="govuk-table__cell">Watling Estate</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44009020">44009020</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000711</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/WatlingEstate.pdf"><img class="pdf-map" src="img/WatlingEstate.png"></a>
+
+
+<h2 id="44002419" class="govuk-heading-l">Moss Hall Crescent</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002419">44002419</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA05</td>
+	<td class="govuk-table__cell">Moss Hall Crescent</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002419">44002419</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7242</td>
+	<td class="govuk-table__cell">Moss Hall Crescent</td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/MossHallCrescent.pdf"><img class="pdf-map" src="img/MossHallCrescent.png"></a>
+
+
+<h2 id="44002418" class="govuk-heading-l">Glenhill Close</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002418">44002418</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA06</td>
+	<td class="govuk-table__cell">Glenhill Close</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002418">44002418</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">6945</td>
+	<td class="govuk-table__cell">Glenhill Close</td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/GlenhillClose.pdf"><img class="pdf-map" src="img/GlenhillClose.png"></a>
+
+
+<h2 id="44002416" class="govuk-heading-l">College Farm</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002416">44002416</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA07</td>
+	<td class="govuk-table__cell">College Farm</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002416">44002416</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7064</td>
+	<td class="govuk-table__cell">Finchley College Farm</td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/CollegefarmConservationArea.pdf"><img class="pdf-map" src="img/CollegefarmConservationArea.png"></a>
+
+
+<h2 id="44002415" class="govuk-heading-l">Hendon, Church End</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002415">44002415</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA08</td>
+	<td class="govuk-table__cell">Hendon, Church End</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002415">44002415</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7251</td>
+	<td class="govuk-table__cell">Hendon Church End</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44009018">44009018</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000713</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/HendonChurchEnd.pdf"><img class="pdf-map" src="img/HendonChurchEnd.png"></a>
+
+
+<h2 id="44002412" class="govuk-heading-l">Hampstead Village (Heath Passage)</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002412">44002412</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA10</td>
+	<td class="govuk-table__cell">Hampstead Village (Heath Passage)</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002412">44002412</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7063</td>
+	<td class="govuk-table__cell">Hampstead Village (Heath Passage)</td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/mapheathpassage.pdf"><img class="pdf-map" src="img/mapheathpassage.png"></a>
+
+
+<h2 id="44002411" class="govuk-heading-l">Cricklewood Railway Terraces</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002411">44002411</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA11</td>
+	<td class="govuk-table__cell">Cricklewood Railway Terraces</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002411">44002411</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">6944</td>
+	<td class="govuk-table__cell">Railway Terraces Cricklewood</td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/CricklewoodRailwayterrace.pdf"><img class="pdf-map" src="img/CricklewoodRailwayterrace.png"></a>
+
+
+<h2 id="44002422" class="govuk-heading-l">Totteridge</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002422">44002422</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA12</td>
+	<td class="govuk-table__cell">Totteridge</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002422">44002422</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">6949</td>
+	<td class="govuk-table__cell">Totteridge</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44008888">44008888</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000392</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/Totteridge.pdf"><img class="pdf-map" src="img/Totteridge.png"></a>
+
+
+<h2 id="44002421" class="govuk-heading-l">Mill Hill</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002421">44002421</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA13</td>
+	<td class="govuk-table__cell">Mill Hill</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002421">44002421</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">6948</td>
+	<td class="govuk-table__cell">Mill Hill</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44009019">44009019</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000709</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/MillHill.pdf"><img class="pdf-map" src="img/MillHill.png"></a>
+
+
+<h2 id="44006529" class="govuk-heading-l">Finchley Church End</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44006529">44006529</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA14</td>
+	<td class="govuk-table__cell">Finchley Church End</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44006529">44006529</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7240</td>
+	<td class="govuk-table__cell">Finchley Church End</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44008887">44008887</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000391</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/FinchleyChurchEnd.pdf"><img class="pdf-map" src="img/FinchleyChurchEnd.png"></a>
+
+
+<h2 id="44004082" class="govuk-heading-l">Hampstead Garden Suburb</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44004082">44004082</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA15</td>
+	<td class="govuk-table__cell">Hampstead Garden Suburb</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44004082">44004082</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">6947</td>
+	<td class="govuk-table__cell">Hampstead Garden Suburb</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44009021">44009021</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000712</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/HGSboundary.pdf"><img class="pdf-map" src="img/HGSboundary.png"></a>
+
+
+<h2 id="44009828" class="govuk-heading-l">Golders Green Town Centre</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44009828">44009828</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA16</td>
+	<td class="govuk-table__cell">Golders Green Town Centre</td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/GoldersGreen.pdf"><img class="pdf-map" src="img/GoldersGreen.png"></a>
+
+
+<h2 id="44002414" class="govuk-heading-l">Hendon, The Burroughs</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002414">44002414</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA17</td>
+	<td class="govuk-table__cell">Hendon, The Burroughs</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002414">44002414</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7250</td>
+	<td class="govuk-table__cell">Hendon The Burroughs</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44008884">44008884</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000384</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/TheBurroughsHendonCA.pdf"><img class="pdf-map" src="img/TheBurroughsHendonCA.png"></a>
+
+
+<h2 id="44002417" class="govuk-heading-l">Finchley Garden Village</h2>
+<table class="govuk-table">
+    <thead class="govuk-table__head">
+	<caption class="govuk-table__caption govuk-table__caption--m">Entities</caption>
+	<tr class="govuk-table__row">
+	    <th scope="col" class="govuk-table__header">Entity</th>
+	    <th scope="col" class="govuk-table__header">Organisation</th>
+	    <th scope="col" class="govuk-table__header">Reference</th>
+	    <th scope="col" class="govuk-table__header">Name</th>
+	</tr>
+    </thead>
+    <tbody class="govuk-table__body">
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002417">44002417</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/48">48</a></td>
+	<td class="govuk-table__cell">CA18</td>
+	<td class="govuk-table__cell">Finchley Garden Village</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44002417">44002417</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/16">16</a></td>
+	<td class="govuk-table__cell">7241</td>
+	<td class="govuk-table__cell">Finchley Garden Village</td>
+	</tr>
+	
+	<tr class="govuk-table__row">
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/44009017">44009017</a></td>
+	<td class="govuk-table__cell"><a href="https://www.planning.data.gov.uk/entity/144">144</a></td>
+	<td class="govuk-table__cell">COA00000710</td>
+	<td class="govuk-table__cell"></td>
+	</tr>
+	
+    </tbody>
+</table>
+
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/229681FinchleyGardenVillage.pdf"><img class="pdf-map" src="img/229681FinchleyGardenVillage.png"></a>
+
+
+
+<h2 class="govuk-heading-l">The Bishops Avenue</h2>
+<p class="govuk-body">The information page includes 
+<a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/TheBishopsAvenue.pdf">a map</a>
+and an <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/common/bishopsavenue.pdf">area appraisal</a> for The Bishops Avenue, but this seems to be a part of the <a href="#44004082">Hampstead Gardens</a> conservation area.
+</p>
+
+
+</main>
+</div>
+    
+<footer class="govuk-footer " role="contentinfo"
+        >
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+          <h2 class="govuk-visually-hidden">Support links</h2>
+              <ul class="govuk-footer__inline-list">
+                
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/cookies">
+                      Cookies
+                    </a>
+                  </li>
+                
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/accessibility-statement">
+                      Accessibility statement
+                    </a>
+                  </li>
+                
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/design-system">
+                      Design system
+                    </a>
+                  </li>
+                
+              </ul>
+            
+          
+          
+            <div class="govuk-footer__meta-custom">
+              The <a class="govuk-footer__link" href="https://github.com/digital-land/digital-land/">software</a> and <a class="govuk-footer__link" href="https://github.com/digital-land/digital-land/">data</a> used to build these pages is <a class="govuk-footer__link" href="https://github.com/digital-land/digital-land/blob/master/LICENSE">open source</a>.
+            </div>
+          
+        
+        <svg
+          role="presentation"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="https://digital-land.github.io/javascripts/dl-cookies.js"></script>
+	<script async src='https://www.google-analytics.com/analytics.js'></script>
+	<!-- end google analytics -->
+	
+
+	<script src="https://digital-land.github.io/javascripts/govuk/govuk-frontend.min.js"></script>
+	<script>
+		// initiate all GOVUK components
+		window.GOVUKFrontend.initAll();
+	</script>
+
+	
+	
+	<script src="https://digital-land.github.io/javascripts/dl-frontend.js"></script>
+	<script>
+		// adds any necessary polyfills
+		window.DLFrontend.polyfill();
+	</script>
+
+<script>
+organisations = {
+   '0': {"name": "Unknown", "color": "#ff0000"},
+   '10': {"name": "Office for National Statistics", "color": "#888888"},
+   '16': {"name": "Historic England", "color": "#32a2db"},
+   '48': {"name": "London Borough of Barnet", "color": "#0000ff"},
+   '90': {"name": "London Borough of Camden", "color": "#444444"},
+   '126': {"name": "London Borough of Enfield", "color": "#444444"},
+   '175': {"name": "London Borough of Haringey", "color": "#444444"},
+   '144': {"name": "Greater London Authority", "color": "#00ff00"},
+}
+
+function normalised_properties(feature) {
+    var p = Object.assign({}, feature.properties)
+    if (!("organisation-entity" in p)) {
+        p["organisation-entity"] = 0
+    }
+    if (!(p["organisation-entity"] in organisations)) {
+        console.log(p["organisation-entity"])
+    }
+    if (!("name" in p)) {
+	p["name"] = ""
+    }
+    if (!("reference" in p)) {
+	p["reference"] = ""
+    }
+    return p
+}
+
+const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+groups = {
+    "Basemap": osm,
+    "Local authority district": L.layerGroup(),
+    "Existing entities": L.layerGroup(),
+    "Barnet data": L.layerGroup()
+}
+
+const map = L.map('map', {
+    layers: [
+	osm,
+	groups["Local authority district"],
+	groups["Existing entities"],
+	groups["Barnet data"]
+     ], fullscreenControl: true });
+
+L.control.layers({}, groups, {collapsed:false}).addTo(map);
+L.control.scale().addTo(map);
+
+function load_geojson(group, url) {
+
+	function onEachFeature(feature, layer) {
+	    p = normalised_properties(feature)
+	    layer.bindPopup(
+		group + 
+	        "<br><a href='https://www.planning.data.gov.uk/entity/"+p.entity + "'>" + p.entity + "</a>" +
+		"<br><a href='https://www.planning.data.gov.uk/entity/"+p["organisation-entity"] + "'>" + 
+		    organisations[p["organisation-entity"]].name + "</a>" +
+		"<br>" + p.reference + 
+		"<br>" + p.name
+	    );
+	    groups[group].addLayer(layer)
+
+	    if (group == "Local authority district") {
+	        map.fitBounds(layer.getBounds())
+	    }
+	}
+
+	function setStyle(feature) {
+	    p = normalised_properties(feature);
+	    return {"color": organisations[p["organisation-entity"]].color};
+	}
+
+    fetch(url)
+	.then(res => res.json())
+	.then(data => L.geoJSON(data, { onEachFeature: onEachFeature, style: setStyle }).addTo(map))
+}
+
+load_geojson("Local authority district", "local-authority-district.geojson")
+load_geojson("Existing entities", "entities.geojson")
+load_geojson("Barnet data", "barnet.geojson")
+
+</script>
+</body>
+</html>

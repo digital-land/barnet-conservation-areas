@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+.ipynb_checkpoints/
+.venv/
+.cache/
+*.swp
+tmp/
+var/
+/.vs

@@ -29,6 +29,7 @@ all:: $(DOCS) $(IMAGES) $(SAVED) $(DATA)
 
 docs/index.html: template.html bin/render.py data/entities.csv
 	@mkdir -p docs
+	@touch docs/.nojekyll
 	python3 bin/render.py
 
 docs/local-authority-district.geojson:

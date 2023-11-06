@@ -16,6 +16,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-imageoverlay-rotated@0.2.1/Leaflet.ImageOverlay.Rotated.js"></script>
 <style>
 html {
     font-family: sans-serif;
@@ -331,21 +332,24 @@ const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 groups = {
     "Basemap": osm,
+    "Documents": L.layerGroup(),
     "Local authority district": L.layerGroup(),
     "Existing entities": L.layerGroup(),
-    "Barnet data": L.layerGroup()
+    "Barnet data": L.layerGroup(),
 }
 
 const map = L.map('map', {
     layers: [
 	osm,
+	groups["Documents"],
 	groups["Local authority district"],
 	groups["Existing entities"],
-	groups["Barnet data"]
+	groups["Barnet data"],
      ], fullscreenControl: true });
 
 L.control.layers({}, groups, {collapsed:false}).addTo(map);
 L.control.scale().addTo(map);
+
 
 function load_geojson(group, url) {
 
@@ -379,6 +383,15 @@ function load_geojson(group, url) {
 load_geojson("Local authority district", "local-authority-district.geojson")
 load_geojson("Existing entities", "entities.geojson")
 load_geojson("Barnet data", "barnet.geojson")
+
+// PDF maps
+var overlay = L.imageOverlay.rotated("img/MillHill.png", 
+	L.latLng(51.63566101666426, -0.2629124745726586),
+	L.latLng(51.634693792675016, -0.20216681063175204),
+	L.latLng(51.60891498933095, -0.26373803637397947),
+	{ opacity: 0.6, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
 
 </script>
 </body>

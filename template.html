@@ -113,7 +113,7 @@ img.pdf-map {
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body"><time datetime="2023-11-03">3 November 2023</time></p>
     <p class="govuk-body">
-    Notes on adding Barnet's conservation areas to <a href="https://www.planning.data.gov.uk">planning.data.gov.uk</a>.
+    Notes on reconciling Barnet's conservation area data for <a href="https://www.planning.data.gov.uk">planning.data.gov.uk</a>.
     </p>
 
 <div id='map'></div>
@@ -392,14 +392,6 @@ overlay = L.imageOverlay.rotated("img/MonkenHadley.png",
 map.addLayer(overlay);
 groups["Documents"].addLayer(overlay);
 
-overlay = L.imageOverlay.rotated("img/MillHill.png", 
-	L.latLng(51.63566101666426, -0.2629124745726586),
-	L.latLng(51.634693792675016, -0.20216681063175204),
-	L.latLng(51.60891498933095, -0.26373803637397947),
-	{ opacity: 1, });
-map.addLayer(overlay);
-groups["Documents"].addLayer(overlay);
-
 overlay = L.imageOverlay.rotated("img/238231WoodStreetnoarticle4.png", 
 	L.latLng(51.644206151995334, -0.22038191469619056),
 	L.latLng(51.65752625958556, -0.22603556535614194),
@@ -408,10 +400,115 @@ overlay = L.imageOverlay.rotated("img/238231WoodStreetnoarticle4.png",
 map.addLayer(overlay);
 groups["Documents"].addLayer(overlay);
 
+overlay = L.imageOverlay.rotated("img/WatlingEstate.png", 
+	L.latLng(51.61088542548062, -0.27503840641657007),
+	L.latLng(51.61484977408834, -0.24506136775016787),
+	L.latLng(51.59658586928697, -0.2702159064210719),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/MossHallCrescent.png", 
+	L.latLng(51.611943690051305, -0.18447093731083444),
+	L.latLng(51.61176685741582, -0.17701042859698646),
+	L.latLng(51.60854405255064, -0.1846257504075766),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/GlenhillClose.png", 
+	L.latLng(51.60003548959353, -0.19447063095867637),
+	L.latLng(51.599992484763675, -0.1906595891341567),
+	L.latLng(51.59674904985396, -0.19467514939606193),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/CollegefarmConservationArea.png", 
+	L.latLng(51.59023201028912, -0.20771523934854488),
+	L.latLng(51.59494217684769, -0.2074234095562133),
+	L.latLng(51.59005755802228, -0.19703381629369693),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+groups["Documents"].addLayer(overlay);
+overlay = L.imageOverlay.rotated("img/HendonChurchEnd.png", 
+	L.latLng(51.5928432465984, -0.23070327926689063),
+	L.latLng(51.5927366806699, -0.22309130989015105),
+	L.latLng(51.589497857087906, -0.23075725888702442),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+groups["Documents"].addLayer(overlay);
+overlay = L.imageOverlay.rotated("img/mapheathpassage.png", 
+	L.latLng(51.56911684196851, -0.18548756394011437),
+	L.latLng(51.569047792829714, -0.18175986639107578),
+	L.latLng(51.56590225589827, -0.18563483406069284),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/CricklewoodRailwayterrace.png", 
+	L.latLng(51.56193948694616, -0.22116597281637956),
+	L.latLng(51.56183637445554, -0.21361112594604495),
+	L.latLng(51.55859548701375, -0.2212592214073084),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
 overlay = L.imageOverlay.rotated("img/Totteridge.png", 
 	L.latLng(51.64551534271173, -0.23702055303147068),
 	L.latLng(51.64467322910039, -0.1764215173898265),
 	L.latLng(51.61891536344779, -0.2382786200541887),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/MillHill.png", 
+	L.latLng(51.63566101666426, -0.2629124745726586),
+	L.latLng(51.634693792675016, -0.20216681063175204),
+	L.latLng(51.60891498933095, -0.26373803637397947),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/FinchleyChurchEnd.png", 
+	L.latLng(51.601868199707084, -0.20322365729953162),
+	L.latLng(51.601698373590416, -0.1879529468715191),
+	L.latLng(51.59516921821949, -0.20344600037788044),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/HGSboundary.png", 
+	L.latLng(51.56734664230901, -0.2176970313303173),
+	L.latLng(51.59703892728414, -0.2161670484929346),
+	L.latLng(51.565691037016855, -0.15023790299892428),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/GoldersGreen.png", 
+	L.latLng(51.57490593280341, -0.20338978596555538),
+	L.latLng(51.577713785373945, -0.1881493636756204),
+	L.latLng(51.568091236520964, -0.20041113719344142),
+	{ opacity: 1, });
+map.addLayer(overlay);
+groups["Documents"].addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/TheBurroughsHendonCA.png", 
+	L.latLng(51.58884553052172, -0.23306785614295225),
+	L.latLng(51.58880364336812, -0.22534583229571584),
+	L.latLng(51.58553159840366, -0.23310085292905572),
+	{ opacity: 1, });
+map.addLayer(overlay);
+
+overlay = L.imageOverlay.rotated("img/229681FinchleyGardenVillage.png", 
+	L.latLng(51.596997325412296, -0.21096698476867462),
+	L.latLng(51.60034389814244, -0.21083857397115938),
+	L.latLng(51.59693772543335, -0.20340375624073206),
 	{ opacity: 1, });
 map.addLayer(overlay);
 groups["Documents"].addLayer(overlay);

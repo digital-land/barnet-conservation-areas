@@ -25,6 +25,13 @@ crossorigin=""></script>
     z-index: 800;
     left: 200px;
 }
+#output {
+    position: absolute;
+    z-index: 800;
+    bottom: 0;
+    right: 0;
+    font-size: 6px;
+}
 </style>
 	
 </head>
@@ -41,7 +48,9 @@ crossorigin=""></script>
     <button onclick='setOverlayOpacity(0.7)'>70%</button>
     <button onclick='setOverlayOpacity(0.8)'>80%</button>
     <button onclick='setOverlayOpacity(0.9)'>90%</button>
+    <button onclick='setOverlayOpacity(1)'>100%</button>
     </div>
+    <textarea id="output" rows="3" cols="50"></textarea>
     <script type="text/javascript">
 	
 
@@ -50,7 +59,7 @@ crossorigin=""></script>
 	var mapnik = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png')
 	baseLayers = [ positron, osmHOT, mapnik ]
 	var map = new L.Map('map', {layers: baseLayers})
-	L.control.layers(baseLayers, {}, {collapsed:false}).addTo(map);
+	L.control.layers({}, baseLayers, {collapsed:false}).addTo(map);
 	L.Control.geocoder().addTo(map);
 
         fetch("docs/barnet.geojson").then(res => res.json()).then(data => L.geoJSON(data).addTo(map))
@@ -59,6 +68,10 @@ crossorigin=""></script>
 	    point2 = L.latLng(51.634693792675016, -0.20216681063175204)
 	    point3 = L.latLng(51.60891498933095, -0.26373803637397947)
 
+point1 = L.latLng(51.57490593280341, -0.20338978596555538)
+point2 = L.latLng(51.577713785373945, -0.1881493636756204)
+point3 = L.latLng(51.568091236520964, -0.20041113719344142)
+
 	var marker1 = L.marker(point1, {draggable: true} ).addTo(map),
 	    marker2 = L.marker(point2, {draggable: true} ).addTo(map),
 	    marker3 = L.marker(point3, {draggable: true} ).addTo(map);
@@ -66,8 +79,8 @@ crossorigin=""></script>
 	var bounds = new L.LatLngBounds(point1, point2).extend(point3);
 	map.fitBounds(bounds);
 
-	var overlay = L.imageOverlay.rotated("docs/img/MonkenHadley.png", point1, point2, point3, {
-	    opacity: 0.4,
+	var overlay = L.imageOverlay.rotated("docs/img/mapheathpassage.png", point1, point2, point3, {
+	    opacity: 1,
 	    interactive: true,
 	});
 	
@@ -82,14 +95,51 @@ crossorigin=""></script>
 	map.addLayer(overlay);
 
 	overlay.on('click',function (e) {
-	    console.log("L.latLng(" + marker1.getLatLng().lat + ", " + marker1.getLatLng().lng + "),")
-	    console.log("L.latLng(" + marker2.getLatLng().lat + ", " + marker2.getLatLng().lng + "),")
-	    console.log("L.latLng(" + marker3.getLatLng().lat + ", " + marker3.getLatLng().lng + "),")
+	    document.getElementById('output').value =
+		"L.latLng(" + marker1.getLatLng().lat + ", " + marker1.getLatLng().lng + "),\n" +
+		"L.latLng(" + marker2.getLatLng().lat + ", " + marker2.getLatLng().lng + "),\n" +
+		"L.latLng(" + marker3.getLatLng().lat + ", " + marker3.getLatLng().lng + "),"
 	});
 
 	function setOverlayOpacity(opacity) {
 	    overlay.setOpacity(opacity);
 	}
+
+
+	/*
+	    // dragable ..
+	var poly1 = [
+	  [40.71222, -74.22655],
+	  [40.77394, -74.22655],
+	  [40.77394, -74.12544],
+	  [40.71222, -74.12544]
+	];
+
+	var pg = new L.Polygon([poly1], {
+	  draggable: true,
+	  color: '#ff3300',
+		opacity: 0,
+	  fillOpacity: 0
+	}).addTo(map);
+
+	var imageBounds = L.latLngBounds([
+	  poly1[0],
+	  poly1[2]
+	]);
+
+	pg.on('dragstart', function (e) {
+		console.log(pg.getBounds());
+		overlay.setBounds(pg.getBounds());
+	});
+	pg.on('drag', function (e) {
+		console.log(pg.getBounds());
+		overlay.setBounds(pg.getBounds());
+	});
+	pg.on('dragend', function (e) {
+		console.log(pg.getBounds());
+		overlay.setBounds(pg.getBounds());
+	});
+*/
     </script>
 </body>
 </html>

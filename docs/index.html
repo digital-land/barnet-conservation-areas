@@ -118,40 +118,6 @@ img.pdf-map, img.screenshot {
 
 <div id='map'></div>
 
-<h2 id="source" class="govuk-heading-l">Source</h2>
-<p class="govuk-body">
-Barnet have a policy page on their main site with a list of conservation areas which looks like the source 
-<code>documentation-url</code> value:
-<a href="https://www.barnet.gov.uk/planning-and-building-control/conservation-and-heritage/conservation-areas">https://www.barnet.gov.uk/planning-and-building-control/conservation-and-heritage/conservation-areas</a>.
-</p>
-
-<h2 id="endpoint" class="govuk-heading-l">Endpoint</h2>
-<p class="govuk-body">
-Barnet also have a page documenting their open data publications and endpoints: 
-<a href="https://open.barnet.gov.uk/dataset/20yo8/conservation-areas">https://open.barnet.gov.uk/dataset/20yo8/conservation-areas</a>.
-</p>
-<p class="govuk-body">
-This could be added to the endpoint dataset in a new <code>documentation-url</code> field.
-We can use this to record pages like this where the data is documented separately to the information, 
-such as on a service such as <a href="https://datamillnorth.org/">Data Mill North</a> or ArcGIS.
-</p>
-<p class="govuk-body">
-There is also a <a href="https://guidance.data.gov.uk/publish_and_manage_data/harvest_or_add_data/harvest_data/gemini/">GEMINI</a> file at
-<a href="https://open.barnet.gov.uk/download/20yo8/ef7/ConservationAreas.xml">https://open.barnet.gov.uk/download/20yo8/ef7/ConservationAreas.xml</a>.
-This is one of the metadata formats used by the 
-<a href="https://guidance.data.gov.uk/publish_and_manage_data/harvest_or_add_data/harvest_data/">data.gov.uk harvester</a>
-which could be used by the platform monitor to monitor endpoints published by some LPAs.
-The platform could also publish a GEMINI file for each dataset.
-</p>
-<h1 id="conservation-area-documents" class="govuk-heading-l">Conservation area documents</h1>
-<p class="govuk-body">
-The <code>documentation-url</code> against each conservation area is currently empty. 
-This should be set to the URL of the PDF containing the authorititive red line boundary map for each conservation area.
-</p>
-<p class="govuk-body">
-The area appraisal documents associated with each conservation area should be provided in a conservation-area-document dataset.
-We can help seed this dataset.
-</p>
 <h1 id="matching-existing-entities" class="govuk-heading-l">Matching existing entities</h1>
 <p class="govuk-body">
 We already have conservation areas in Barnet from Historic England's national dataset, and the GLA's London Datastore.
@@ -827,6 +793,40 @@ which is outside of the polygon provided by Barnet.
 <p class="govuk-body">The information page includes 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/TheBishopsAvenue.pdf">a map</a>
 and an <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/common/bishopsavenue.pdf">area appraisal</a> for The Bishops Avenue, but this seems to be a part of the <a href="#44004082">Hampstead Gardens</a> conservation area.
+</p>
+<h2 id="source" class="govuk-heading-l">Source</h2>
+<p class="govuk-body">
+Barnet have a policy page on their main site with a list of conservation areas which looks like the source 
+<code>documentation-url</code> value:
+<a href="https://www.barnet.gov.uk/planning-and-building-control/conservation-and-heritage/conservation-areas">https://www.barnet.gov.uk/planning-and-building-control/conservation-and-heritage/conservation-areas</a>.
+</p>
+
+<h2 id="endpoint" class="govuk-heading-l">Endpoint</h2>
+<p class="govuk-body">
+Barnet also have a page documenting their open data publications and endpoints: 
+<a href="https://open.barnet.gov.uk/dataset/20yo8/conservation-areas">https://open.barnet.gov.uk/dataset/20yo8/conservation-areas</a>.
+</p>
+<p class="govuk-body">
+This could be added to the endpoint dataset in a new <code>documentation-url</code> field.
+We can use this to record pages like this where the data is documented separately to the information, 
+such as on a service such as <a href="https://datamillnorth.org/">Data Mill North</a> or ArcGIS.
+</p>
+<p class="govuk-body">
+There is also a <a href="https://guidance.data.gov.uk/publish_and_manage_data/harvest_or_add_data/harvest_data/gemini/">GEMINI</a> file at
+<a href="https://open.barnet.gov.uk/download/20yo8/ef7/ConservationAreas.xml">https://open.barnet.gov.uk/download/20yo8/ef7/ConservationAreas.xml</a>.
+This is one of the metadata formats used by the 
+<a href="https://guidance.data.gov.uk/publish_and_manage_data/harvest_or_add_data/harvest_data/">data.gov.uk harvester</a>
+which could be used by the platform monitor to monitor endpoints published by some LPAs.
+The platform could also publish a GEMINI file for each dataset.
+</p>
+<h1 id="conservation-area-documents" class="govuk-heading-l">Conservation area documents</h1>
+<p class="govuk-body">
+The <code>documentation-url</code> against each conservation area is currently empty. 
+This should be set to the URL of the PDF containing the authorititive red line boundary map for each conservation area.
+</p>
+<p class="govuk-body">
+The area appraisal documents associated with each conservation area should be provided in a conservation-area-document dataset.
+We can help seed this dataset.
 </p>
 
 </main>

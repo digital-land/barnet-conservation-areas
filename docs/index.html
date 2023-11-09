@@ -28,9 +28,9 @@ html {
   max-height: 80%;
   margin: 4em 0;
 }
-img.pdf-map {
+img.pdf-map, img.screenshot {
    max-width: 100%;
-   margin: 1em 0;
+   margin: 1em 0 2em;
 }
 </style>
 </head>
@@ -155,17 +155,18 @@ We can help seed this dataset.
 <h1 id="matching-existing-entities" class="govuk-heading-l">Matching existing entities</h1>
 <p class="govuk-body">
 We already have conservation areas in Barnet from Historic England's national dataset, and the GLA's London Datastore.
-Entities from these secondary sources need to be matched and redirected to Barnet's data, which is the authorititive source. 
+Entities from these secondary sources need to be matched and redirected to Barnet's data, and the redline boundaries, the authorititive source. 
 </p>
 <p class="govuk-body">
 The platform currently sets the organisation for each conservation area from the London Datastore to the individual London Borough.
 This should be changed to attribute them to all to the GLA so they can be recoginsed as being a secondary source.
 </p>
 <p class="govuk-body">
-A <a href="https://www.planning.data.gov.uk/entity/?dataset=conservation-area&geometry_curie=statistical-geography:E09000003&limit=500">search for conservation areas in Barnet</a> currently returns 33 entities including conservation areas from neighbouring authorities which abut Barnet's local authority district boundary. 
+A <a href="https://www.planning.data.gov.uk/entity/?dataset=conservation-area&geometry_curie=statistical-geography:E09000003&limit=500">search for conservation areas in Barnet</a> returned 33 entities including conservation areas from neighbouring authorities which abut Barnet's local authority district boundary.
+This is now 16 following the changes below being implemented by the platform.
 </p>
 <p class="govuk-body">
-The references CA02 and CA09 don't appear in Barnet's data.
+Note the references CA02 and CA09 don't appear in Barnet's data.
 </p>
 
 
@@ -216,6 +217,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/MonkenHadley.pdf"><img class="pdf-map" src="img/MonkenHadley.png"></a>
 
 
+
+
+
 <h2 id="44002423" class="govuk-heading-l">Wood Street</h2>
 <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -254,6 +258,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 </table>
 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/238231WoodStreetnoarticle4.pdf"><img class="pdf-map" src="img/238231WoodStreetnoarticle4.png"></a>
+
+
+
 
 
 <h2 id="44002420" class="govuk-heading-l">The Watling Estate</h2>
@@ -296,6 +303,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/WatlingEstate.pdf"><img class="pdf-map" src="img/WatlingEstate.png"></a>
 
 
+
+
+
 <h2 id="44002419" class="govuk-heading-l">Moss Hall Crescent</h2>
 <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -327,6 +337,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 </table>
 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/MossHallCrescent.pdf"><img class="pdf-map" src="img/MossHallCrescent.png"></a>
+
+
+
 
 
 <h2 id="44002418" class="govuk-heading-l">Glenhill Close</h2>
@@ -362,6 +375,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/GlenhillClose.pdf"><img class="pdf-map" src="img/GlenhillClose.png"></a>
 
 
+
+
+
 <h2 id="44002416" class="govuk-heading-l">College Farm</h2>
 <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -393,6 +409,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 </table>
 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/CollegefarmConservationArea.pdf"><img class="pdf-map" src="img/CollegefarmConservationArea.png"></a>
+
+
+
 
 
 <h2 id="44002415" class="govuk-heading-l">Hendon, Church End</h2>
@@ -435,6 +454,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/HendonChurchEnd.pdf"><img class="pdf-map" src="img/HendonChurchEnd.png"></a>
 
 
+
+
+
 <h2 id="44002412" class="govuk-heading-l">Hampstead Village (Heath Passage)</h2>
 <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -468,6 +490,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/mapheathpassage.pdf"><img class="pdf-map" src="img/mapheathpassage.png"></a>
 
 
+
+
+
 <h2 id="44002411" class="govuk-heading-l">Cricklewood Railway Terraces</h2>
 <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -499,6 +524,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 </table>
 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/CricklewoodRailwayterrace.pdf"><img class="pdf-map" src="img/CricklewoodRailwayterrace.png"></a>
+
+
+
 
 
 <h2 id="44002422" class="govuk-heading-l">Totteridge</h2>
@@ -541,6 +569,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/Totteridge.pdf"><img class="pdf-map" src="img/Totteridge.png"></a>
 
 
+
+
+
 <h2 id="44002421" class="govuk-heading-l">Mill Hill</h2>
 <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -579,6 +610,15 @@ The references CA02 and CA09 don't appear in Barnet's data.
 </table>
 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/MillHill.pdf"><img class="pdf-map" src="img/MillHill.png"></a>
+
+
+<p class="govuk-body">
+The PDF redline boundary includes <a href="https://maps.app.goo.gl/LqnvRcSzPKUYEQJ6A">a property on Marsh Lane</a>
+which is outside of the polygon provided by Barnet.
+</p>
+<img class="screenshot" src="marsh-lane.png"></a>
+
+
 
 
 <h2 id="44006529" class="govuk-heading-l">Finchley Church End</h2>
@@ -621,6 +661,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/FinchleyChurchEnd.pdf"><img class="pdf-map" src="img/FinchleyChurchEnd.png"></a>
 
 
+
+
+
 <h2 id="44004082" class="govuk-heading-l">Hampstead Garden Suburb</h2>
 <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -661,6 +704,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/HGSboundary.pdf"><img class="pdf-map" src="img/HGSboundary.png"></a>
 
 
+
+
+
 <h2 id="44009828" class="govuk-heading-l">Golders Green Town Centre</h2>
 <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -685,6 +731,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 </table>
 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/GoldersGreen.pdf"><img class="pdf-map" src="img/GoldersGreen.png"></a>
+
+
+
 
 
 <h2 id="44002414" class="govuk-heading-l">Hendon, The Burroughs</h2>
@@ -725,6 +774,9 @@ The references CA02 and CA09 don't appear in Barnet's data.
 </table>
 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/TheBurroughsHendonCA.pdf"><img class="pdf-map" src="img/TheBurroughsHendonCA.png"></a>
+
+
+
 
 
 <h2 id="44002417" class="govuk-heading-l">Finchley Garden Village</h2>
@@ -768,12 +820,14 @@ The references CA02 and CA09 don't appear in Barnet's data.
 
 
 
+
+
+
 <h2 class="govuk-heading-l">The Bishops Avenue</h2>
 <p class="govuk-body">The information page includes 
 <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/planningconservationandbuildingcontrol/TheBishopsAvenue.pdf">a map</a>
 and an <a href="https://www.barnet.gov.uk/sites/default/files/assets/citizenportal/documents/common/bishopsavenue.pdf">area appraisal</a> for The Bishops Avenue, but this seems to be a part of the <a href="#44004082">Hampstead Gardens</a> conservation area.
 </p>
-
 
 </main>
 </div>

@@ -58,7 +58,7 @@ docs/img/%.jpg: var/cache/map/%.pdf
 
 docs/img/%.png: var/cache/map/%.pdf
 	@mkdir -p docs/img
-	convert -density 150 $<[0] -quality 90 -resize 20% -transparent white -alpha on $@
+	convert -density 150 $<[0] -quality 90 -resize 50% -transparent white -alpha on $@
 
 clean::
 	rm -rf var docs

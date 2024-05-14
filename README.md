@@ -1,6 +1,6 @@
 Informal notes on conservation area data provided by Barnet on 3 November 20203.
 
-https://digital-land.github.io/barnet-notes/
+https://digital-land.github.io/barnet-conservation-areas/
 
 It's expected we will eventially formalise how we reconcile and give providers feedback on their data like this.
 

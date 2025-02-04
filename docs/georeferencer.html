@@ -64,13 +64,9 @@ crossorigin=""></script>
 
         fetch("barnet.geojson").then(res => res.json()).then(data => L.geoJSON(data).addTo(map))
 
-	var point1 = L.latLng(51.63566101666426, -0.2629124745726586)
-	    point2 = L.latLng(51.634693792675016, -0.20216681063175204)
-	    point3 = L.latLng(51.60891498933095, -0.26373803637397947)
-
-point1 = L.latLng(51.57490593280341, -0.20338978596555538)
-point2 = L.latLng(51.577713785373945, -0.1881493636756204)
-point3 = L.latLng(51.568091236520964, -0.20041113719344142)
+	var point1 = L.latLng(51.56734664230901, -0.2176970313303173),
+	    point2 = L.latLng(51.59703892728414, -0.2161670484929346),
+	    point3 = L.latLng(51.565691037016855, -0.15023790299892428);
 
 	var marker1 = L.marker(point1, {draggable: true} ).addTo(map),
 	    marker2 = L.marker(point2, {draggable: true} ).addTo(map),

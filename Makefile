@@ -1,6 +1,8 @@
 .SECONDARY:
 
-DOCS=docs/index.html
+DOCS=\
+     docs/index.html\
+     docs/georeferencer.html
 
 IMAGES=\
 	docs/img/MonkenHadley.png\
@@ -31,6 +33,9 @@ docs/index.html: template.html bin/render.py data/entities.csv
 	@mkdir -p docs
 	@touch docs/.nojekyll
 	python3 bin/render.py
+
+docs/georeferencer.html: georeferencer.html
+	cp $? $@
 
 docs/local-authority-district.geojson:
 	@mkdir -p docs
